@@ -8,8 +8,6 @@ Diabetes is a chronic disease affecting millions globally. Traditional diagnosti
 
 ## Suggested Repository Structure
 
-## Repository Structure
-
 ### Data
 - **raw/**: Houses the initial, unprocessed datasets.
 - **processed/**: Contains data that has been cleaned and preprocessed.
