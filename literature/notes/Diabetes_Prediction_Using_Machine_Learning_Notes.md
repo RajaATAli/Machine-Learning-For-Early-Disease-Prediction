@@ -60,3 +60,42 @@ Application of K-means and genetic algorithms for dimension reduction by integra
 2. The emphasis on optimal **feature selection** in referenced literature suggests a potential avenue for further exploration. Which features are most predictive, and how can they be efficiently selected?
 3. The use of the PIMA dataset is common, but are there other datasets that could provide more insights or diverse patient profiles?
 4. Are there newer algorithms or neural network architectures that could outperform the mentioned classifiers?
+
+# Summary of Research Paper 2
+Author(s): Sania Faraz, Pawan Singh
+Institution: Amity School of Engineering and Technology Lucknow, Amity University Uttar Pradesh, India
+
+1. It's a serious disease affected by factors like age, obesity, inactivity, genetics, poor diet, and high blood pressure. The body converts most food to sugar, which is regulated by insulin.
+**Support Vector Machines(SVM)**
+- SVM is a supervised learning algorithm used for classification and regression.
+- It aims to find an optimal decision boundary called a hyperplane.
+- Support vectors are the closest points to the hyperplane and influence its position.
+- SVM can be linear (separated by a straight line) or non-linear (requires adding an additional dimension).
+
+### Implementation
+- Libraries used: NumPy (for array manipulation) and Pandas (for data handling).
+**Data Collection and Analysis**
+- Used the PIMA Indian diabetes dataset.
+- The dataset has attributes like pregnancies, glucose, blood pressure, skin thickness, insulin, BMI, diabetes pedigree function, age, and outcome.
+**Data Standardization**
+- Standardization scales data so that its standard deviation is 1 and mean is 0.
+- It's important for algorithms like logistic regression, linear regression, and linear discriminant analysis.
+
+- Train Test Split: Data is randomly divided into training and test subsets.
+- For training the model SVM (support vector classifier) is used.
+
+**Steps**
+- Dependencies like NumPy and Pandas were imported.
+- Data was standardized using the Standard Scaler Function from sklearn.
+- The data was split into training and testing sets.
+- The model was trained using the support vector classifier.
+- The model's accuracy was evaluated using the accuracy score from sklearn.
+
+### Conclusion
+- The study explored the SVM algorithm.
+- The model achieved an accuracy of around 79% in predicting diabetes.
+
+### Gaps and Potential Research Questions
+- The exact methods of preprocessing and feature selection were not extensively discussed.
+- The paper did not compare SVM with other machine learning models apart from mentioning Random Forest.
+- What are the main features or variables that influence the prediction the most?
