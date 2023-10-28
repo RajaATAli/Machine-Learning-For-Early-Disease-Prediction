@@ -5,7 +5,7 @@ DOI: 10.22214/ijraset.2022.41143
 1. Diabetes mellitus is caused by excessively high blood sugar levels
 2. Researchers use various machine learning algorithms like logistic regression, KNN, SVM, and Random Forest to diagnose diseases, as these methods have been shown to be more effective.
 
-### Methodologies
+## Methodologies
 1. Machine Learning Techniques: The research utilizes various machine learning algorithms for diabetes prediction. These include:
 
 - Logistic Regression: A predictive analysis for categorical dependent variables.
@@ -30,7 +30,7 @@ DOI: 10.22214/ijraset.2022.41143
 
 **Improving the classification accuracy will make machine learning models more effective in predicting diabetes.**
 
-### Literature Review
+## Literature Review
 #### 1. Sneha, N. and Gangil, T. (2019)
 Analysis of diabetes mellitus for early prediction using optimal features selection. Journal of Big Data, 6(1), p.13.
 - Importance of selecting appropriate attributes in the early detection of Diabetes Mellitus
@@ -54,7 +54,7 @@ Application of K-means and genetic algorithms for dimension reduction by integra
 - They integrated these with the Support Vector Machine (SVM) as the primary classifier
 - Their model achieved a notable average accuracy of 98.79% for the Pima Indian diabetes dataset from the UCI repository.
 
-### Gaps and Potential Research Questions
+## Gaps and Potential Research Questions
 
 1. The research suggests that a **combination of classifiers** might yield higher accuracies. This raises the question: How can ensemble methods be optimized further for diabetes prediction? How can we use ensemble methods for early diabetes prediction?
 2. The emphasis on optimal **feature selection** in referenced literature suggests a potential avenue for further exploration. Which features are most predictive, and how can they be efficiently selected?
@@ -72,7 +72,7 @@ Institution: Amity School of Engineering and Technology Lucknow, Amity Universit
 - Support vectors are the closest points to the hyperplane and influence its position.
 - SVM can be linear (separated by a straight line) or non-linear (requires adding an additional dimension).
 
-### Implementation
+## Implementation
 - Libraries used: NumPy (for array manipulation) and Pandas (for data handling).
 **Data Collection and Analysis**
 - Used the PIMA Indian diabetes dataset.
@@ -91,11 +91,11 @@ Institution: Amity School of Engineering and Technology Lucknow, Amity Universit
 - The model was trained using the support vector classifier.
 - The model's accuracy was evaluated using the accuracy score from sklearn.
 
-### Conclusion
+## Conclusion
 - The study explored the SVM algorithm.
 - The model achieved an accuracy of around 79% in predicting diabetes.
 
-### Gaps and Potential Research Questions
+## Gaps and Potential Research Questions
 - The exact methods of preprocessing and feature selection were not extensively discussed.
 - The paper did not compare SVM with other machine learning models apart from mentioning Random Forest.
 - What are the main features or variables that influence the prediction the most?
