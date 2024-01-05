@@ -1,23 +1,17 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
+import React from 'react';
+import DataEntryForm from './components/DataEntryForm';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Type 2 Diabetes Risk Prediction</h1>
       </header>
+      <main>
+        <DataEntryForm />
+      </main>
     </div>
   );
 }
