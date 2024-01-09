@@ -1,15 +1,15 @@
-// import logo from './logo.svg';
-import React from 'react';
+import React, { useState } from 'react';
 import DataEntryForm from './components/DataEntryForm';
 import ModelSelection from './components/ModelSelection';
+import ModelDescription from './components/Modeldescription';
 import './App.css';
 
 function App() {
+  const [selectedModel, setSelectedModel] = useState(''); // State to track the selected model
 
-  // Function to handle model selection changes
   const handleModelChange = (model) => {
-    console.log('Selected Model:', model); // Can replace this with an API call - placeholder for now
-    // Add further actions here based on the selected model
+    console.log('Selected Model:', model);
+    setSelectedModel(model); // Update the state with the selected model
   };
 
   return (
@@ -18,7 +18,8 @@ function App() {
         <h1>Type 2 Diabetes Risk Prediction</h1>
       </header>
       <main>
-        <ModelSelection onModelChange={handleModelChange} /> {/* Passes the handleModelChange function as a prop */}
+        <ModelSelection onModelChange={handleModelChange} />
+        <ModelDescription selectedModel={selectedModel} /> 
         <DataEntryForm />
       </main>
     </div>
