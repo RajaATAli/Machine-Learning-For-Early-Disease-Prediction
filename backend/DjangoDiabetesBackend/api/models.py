@@ -1,8 +1,10 @@
 from django.db import models
 
-# Create your models here.
+class Gender(models.Model):
+    genderName = models.CharField(max_length=10)  # Add max_length
+
 class UserData(models.Model):
-    gender = models.CharField(max_length=10)
+    gender = models.ForeignKey(Gender, on_delete=models.CASCADE)
     age = models.IntegerField()
     hypertension = models.CharField(max_length=3)
     heartDisease = models.CharField(max_length=3)
@@ -10,4 +12,3 @@ class UserData(models.Model):
     bmi = models.FloatField()
     hba1cLevel = models.FloatField()
     bloodGlucoseLevel = models.FloatField()
-
