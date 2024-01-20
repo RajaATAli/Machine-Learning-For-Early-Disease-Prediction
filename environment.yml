@@ -20,4 +20,6 @@ dependencies:
   - wheel=0.41.2=py311hca03da5_0
   - xz=5.4.5=h80987f9_0
   - zlib=1.2.13=h5a0b063_0
+  - pip:
+      - psycopg2==2.9.9
 prefix: /Users/rajaallmdar/anaconda3/envs/diabetes_model_deployment

@@ -3,8 +3,11 @@
 
 import React, { useState } from 'react';
 import { TextField, Button, FormControl, InputLabel, Select, MenuItem, FormGroup } from '@mui/material';
+import axios from 'axios';
 
 const DataEntryForm = () => {
+    const [successMessage, setSuccessMessage] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
     const [formData, setFormData] = useState({
         gender: '',
         age: '',
@@ -23,8 +26,30 @@ const DataEntryForm = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(formData); // Can replace this with an API call
+        axios.post('http://127.0.0.1:8000/api/submit-data/', formData)
+            .then(response => {
+                console.log(response.data);
+                setSuccessMessage('Data submitted successfully!');
+                setErrorMessage(''); // Clear any previous error messages
+                // Optionally, clear the form here
+                setFormData({
+                    gender: '',
+                    age: '',
+                    hypertension: '',
+                    heartDisease: '',
+                    smokingHistory: '',
+                    bmi: '',
+                    hba1cLevel: '',
+                    bloodGlucoseLevel: ''
+                });
+            })
+            .catch(error => {
+                console.error('There was an error!', error);
+                setErrorMessage('Failed to submit data. Please try again.');
+                setSuccessMessage(''); // Clear any previous success messages
+            });
     };
+    
 
 
     return (
@@ -123,6 +148,12 @@ const DataEntryForm = () => {
                     onChange={handleChange}
                     margin="normal"
                 />
+
+                {/* Success Message */}
+                {successMessage && <div style={{ color: 'green' }}>{successMessage}</div>}
+
+                {/* Error Message */}
+                {errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>}
     
                 {/* Submit Button */}
                 <Button type="submit" variant="contained" color="primary">
