@@ -1,0 +1,1 @@
+# Predicitve Type-2 Diabetes Prediction Model for Purdue Boiler Make XI Hackathon
