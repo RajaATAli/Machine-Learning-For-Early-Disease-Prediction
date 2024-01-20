@@ -1,0 +1,1 @@
+// Component for displaying the user's prediction history and account information.
