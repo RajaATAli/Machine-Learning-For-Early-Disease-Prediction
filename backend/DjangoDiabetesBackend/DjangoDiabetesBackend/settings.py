@@ -79,12 +79,8 @@ WSGI_APPLICATION = "DjangoDiabetesBackend.wsgi.application"
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mydjangodiabetesdb',
-        'USER': 'raja',
-        'PASSWORD': '12345_Diabetes',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / "db.sqlite3",
     }
 }
 
