@@ -32,10 +32,10 @@ dependencies:
   - openssl=3.0.12=h1a28f6b_0
   - packaging=23.1=py311hca03da5_0
   - pandas=2.1.4=py311h7aedaa7_0
-  - pip=23.3.1=py311hca03da5_0
-  - python=3.11.5=hb885b13_0
-  - python-dateutil=2.8.2=pyhd3eb1b0_0
-  - python-tzdata=2023.3=pyhd3eb1b0_0
+  - pip3=23.3.1=py311hca03da5_0
+  - python3=3.11.5=hb885b13_0
+  - python3-dateutil=2.8.2=pyhd3eb1b0_0
+  - python3-tzdata=2023.3=pyhd3eb1b0_0
   - pytorch=2.1.2=py3.11_0
   - pytz=2023.3.post1=py311hca03da5_0
   - pyyaml=6.0.1=py311h80987f9_0
@@ -56,9 +56,9 @@ dependencies:
   - xz=5.4.5=h80987f9_0
   - yaml=0.2.5=h1a28f6b_0
   - zlib=1.2.13=h5a0b063_0
-  - pip:
+  - pip33:
       - asgiref==3.7.2
       - django-cors-headers==4.3.1
       - djangorestframework==3.14.0
       - psycopg2==2.9.9
-prefix: /Users/rajaallmdar/anaconda3/envs/diabetes_model_deployment
+prefix: /Users/ndhoka/anaconda3/envs/diabetes_model_deployment

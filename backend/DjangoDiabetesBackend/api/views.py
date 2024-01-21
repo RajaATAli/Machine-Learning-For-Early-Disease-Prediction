@@ -33,7 +33,6 @@ def submit_user_data(request):
     if serializer.is_valid():
         print("hello")
         serializer.save()
-        return Response(serializer.data)
     else:
         print(serializer.errors)
         return Response(serializer.errors)
