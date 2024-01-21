@@ -1,35 +1,30 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import DataEntryForm from './components/DataEntryForm';
-import ModelSelection from './components/ModelSelection';
-import ModelDescription from './components/Modeldescription';
 import ContributionForm from './components/ContributionForm';
+import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 import './App.css';
 
+
 function App() {
-  const [selectedModel, setSelectedModel] = useState(''); // State to track the selected model
+  const [selectedModel, setSelectedModel] = useState('');
 
   const handleModelChange = (model) => {
     console.log('Selected Model:', model);
-    setSelectedModel(model); // Update the state with the selected model
+    setSelectedModel(model);
   };
 
   return (
     <Router>
       <div className="App">
-        <header className="App-header">
-          <h1>Type 2 Diabetes Risk Prediction</h1>
-          <nav>
-            <Link to="/">Home</Link> | <Link to="/contribute">Contribute Data</Link>
+          <nav className="navbar" style={{'background-color':'#fffacc'}}>
+            <a className="navbar-brand" href="#">
+              <img src="logo.png" width="150" height="150" className="d-inline-block align-top" alt="DiabTech Logo" />
+              <label style={{ fontFamily: 'cursive', fontSize: '100px', marginLeft: '10px' }}>DiabTech</label>
+            </a>
           </nav>
-        </header>
         <Routes>
-          <Route exact path="/" element={
-            <main>
-              
-              <DataEntryForm />
-            </main>
-          } />
+          <Route exact path="/" element={<main><DataEntryForm /></main>} />
           <Route path="/contribute" element={<ContributionForm />} />
         </Routes>
       </div>

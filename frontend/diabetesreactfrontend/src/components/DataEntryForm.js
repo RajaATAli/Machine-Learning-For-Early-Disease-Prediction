@@ -120,7 +120,7 @@ const DataEntryForm = () => {
                         <MenuItem value="mlp">MLP (Multi-Layer Perceptron)</MenuItem>
                     </Select>
                 </FormControl>
-                <Paper elevation={3} style={{ padding: '20px', marginTop: '20px' }}>
+                <Paper elevation={15} style={{ padding: '20px', marginTop: '20px' }}>
                     <Typography variant="h5" component="h3">
                         {modelInfo && modelInfo.title ? modelInfo.title : 'Model Title'}
                     </Typography>
@@ -240,8 +240,8 @@ const DataEntryForm = () => {
                     {errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>}
 
                     {/* Submit Button */}
-                    <Button type="submit" variant="contained" color="primary">
-                        Submit
+                    <Button type="submit" variant="contained" style={{'background-color': '#fffacc'}}>
+                        <label style={{'color' : 'black'}}>Submit</label>
                     </Button>
                 </FormGroup>
             </form>
