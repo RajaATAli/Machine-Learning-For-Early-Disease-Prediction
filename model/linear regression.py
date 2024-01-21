@@ -62,7 +62,7 @@ X_test = scaler.transform(X_test)
 
 model = MLPClassifier(solver='adam', alpha=1e-4, hidden_layer_sizes=(7,14), random_state=1)
 model = model.fit(X_train, y_train)
-
+print(X_test)
 y_pred = model.predict(X_test)
 classification_dict = classification_report(y_test, y_pred, output_dict=True)
 df = pd.DataFrame(classification_dict)
