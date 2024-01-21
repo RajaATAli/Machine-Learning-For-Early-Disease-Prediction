@@ -85,6 +85,17 @@ DATABASES = {
 }
 
 
+# settings.py
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': 'redis://default:XxSkEauJ0WUckx92Tuemkfhr2RYbAdlN@redis-15291.c309.us-east-2-1.ec2.cloud.redislabs.com:15291/0',  # Update with your Redis Cloud details
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+        }
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
