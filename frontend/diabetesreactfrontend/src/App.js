@@ -26,8 +26,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={
             <main>
-              <ModelSelection onModelChange={handleModelChange} />
-              <ModelDescription selectedModel={selectedModel} /> {/* Correctly passing selectedModel as a prop */}
+              
               <DataEntryForm />
             </main>
           } />

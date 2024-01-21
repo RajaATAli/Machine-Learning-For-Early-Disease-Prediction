@@ -8,6 +8,16 @@
   pointer-events: none;
 }
 
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    /* Optional: Set the container height to the full viewport height */
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
