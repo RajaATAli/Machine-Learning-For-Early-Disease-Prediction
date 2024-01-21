@@ -17,6 +17,7 @@ const modelDetails = {
 const DataEntryForm = () => {
     const [successMessage, setSuccessMessage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+    const [predictionResults, setPredictionResults] = useState(null);
     const [formData, setFormData] = useState({
         selectedModel: {
             name: '',
@@ -76,6 +77,7 @@ const DataEntryForm = () => {
                 console.log(response.data);
                 setSuccessMessage('Data submitted successfully!');
                 setErrorMessage(''); // Clear any previous error messages
+                setPredictionResults(response.data); // Store the prediction results
                 // Optionally, clear the form here
                 setFormData({
                     selectedModel: {
@@ -96,7 +98,8 @@ const DataEntryForm = () => {
             .catch(error => {
                 console.error('There was an error!', error);
                 setErrorMessage('Failed to submit data. Please try again.');
-                setSuccessMessage(''); // Clear any previous success messages
+                setSuccessMessage('');
+                setPredictionResults(null); // Reset prediction results on error
             });
     };
 
@@ -221,8 +224,17 @@ const DataEntryForm = () => {
                         margin="normal"
                     />
 
-                    {/* Success Message */}
-                    {successMessage && <div style={{ color: 'green' }}>{successMessage}</div>}
+                {/* Prediction Results */}
+                {predictionResults && (
+                <div>
+                    <h3>Prediction Results:</h3>
+                    <p>Random Forest Prediction: {predictionResults.random_forest_prediction}</p>
+                    <p>PyTorch Prediction: {predictionResults.pytorch_prediction}</p>
+                </div>
+                 )}
+
+                {/* Success Message */}
+                {successMessage && <div style={{ color: 'green' }}>{successMessage}</div>}
 
                     {/* Error Message */}
                     {errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>}
