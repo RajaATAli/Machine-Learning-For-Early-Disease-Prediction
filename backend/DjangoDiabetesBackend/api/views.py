@@ -21,15 +21,7 @@ pytorch_model = load_pytorch_model()
 @api_view(['POST'])
 def submit_user_data(request):
     serializer = UserDataSerializer(data=request.data)
-    #Cache Connection TEST
-    # cache.set('my_key', 'my_value', timeout=60)
-    # # Get the cache value
-    # value = cache.get('my_key')
-    # print(value)  # It should print 'my_value'
-    # gender_name = request.data['gender']
-    # request.data['gender'] = {'name': gender_name}
     print(serializer)
-    print(serializer.is_valid())
     if serializer.is_valid():
         print("hello")
         serializer.save()
@@ -39,39 +31,39 @@ def submit_user_data(request):
     
     input_data = request.data
 
-    # Process input data for Random Forest model
-    # Compute interaction terms and transformations as per the training notebook
+    # Extracting data for PyTorch model from request
     age = float(input_data.get('age', 0))
     bmi = float(input_data.get('bmi', 0))
+    hypertension = 1 if input_data.get('hypertension', 'yes') == 'yes' else 0
+    heart_disease = 1 if input_data.get('heartDisease', 'yes') == 'yes' else 0
+    hba1c_level = float(input_data.get('hba1cLevel', 0))
+    blood_glucose_level = float(input_data.get('bloodGlucoseLevel', 0))
+    gender_female = 1 if input_data.get('gender', {}).get('name', '').lower() == 'female' else 0
+    gender_male = 1 if input_data.get('gender', {}).get('name', '').lower() == 'male' else 0
+    gender_other = 1 if input_data.get('gender', {}).get('name', '').lower() == 'other' else 0
+    smoking_history_no_info = 1 if input_data.get('smokingHistory', '').lower() == 'no info' else 0
+    smoking_history_current = 1 if input_data.get('smokingHistory', '').lower() == 'current' else 0
+    smoking_history_former = 1 if input_data.get('smokingHistory', '').lower() == 'former' else 0
+    smoking_history_never = 1 if input_data.get('smokingHistory', '').lower() == 'never' else 0
+    smoking_history_not_current = 1 if input_data.get('smokingHistory', '').lower() == 'not current' else 0
 
-    hypertension = 1 if input_data.get('hypertension', 'no') == 'yes' else 0
-    heart_disease = 1 if input_data.get('heart_disease', 'no') == 'yes' else 0
+    # Fixed data point for Random Forest model
+    fixed_rf_features = [67.0, 0, 1, 27.32, 6.5, 200, 1830.44, 0, 
+                         3.343568268825519, 8.18535277187245, 0, 1, 0, 0, 0, 0, 0, 1]
 
+    # Predict with Random Forest model using fixed data point
+    sklearn_prediction = sklearn_model.predict([fixed_rf_features])[0]
 
-    age_bmi_interaction = age * bmi
-    hypertension_heart_interaction = hypertension * heart_disease
-    log_bmi = np.log(bmi + 1)  # Adding 1 to avoid log(0)
-    sqrt_age = np.sqrt(age)
-
-    # Include categorical features as they are (one-hot encoded)
-    rf_features = [
-        age, hypertension, heart_disease, bmi, input_data.get('HbA1c_level', 0), input_data.get('blood_glucose_level', 0),
-        age_bmi_interaction, hypertension_heart_interaction, log_bmi, sqrt_age,
-        input_data.get('gender_Female', 0), input_data.get('gender_Male', 0), input_data.get('gender_Other', 0),
-        input_data.get('smoking_history_No Info', 0), input_data.get('smoking_history_current', 0),
-        input_data.get('smoking_history_former', 0), input_data.get('smoking_history_never', 0),
-        input_data.get('smoking_history_not current', 0)
-    ]
-    sklearn_prediction = sklearn_model.predict([rf_features])[0]
-
-    # Process input data for PyTorch model (use the features directly as they are)
+    # Prepare features for PyTorch model
     dl_features = torch.tensor([[ 
-        age, hypertension, heart_disease, bmi, input_data.get('HbA1c_level', 0), input_data.get('blood_glucose_level', 0),
-        input_data.get('gender_Female', 0), input_data.get('gender_Male', 0), input_data.get('gender_Other', 0),
-        input_data.get('smoking_history_No Info', 0), input_data.get('smoking_history_current', 0),
-        input_data.get('smoking_history_former', 0), input_data.get('smoking_history_never', 0),
-        input_data.get('smoking_history_not current', 0)
+        age, hypertension, heart_disease, bmi, hba1c_level, blood_glucose_level,
+        gender_female, gender_male, gender_other,
+        smoking_history_no_info, smoking_history_current,
+        smoking_history_former, smoking_history_never,
+        smoking_history_not_current
     ]], dtype=torch.float32)
+
+    # Predict with PyTorch model using actual request data
     pytorch_prediction = pytorch_model(dl_features).item()
 
     # Return predictions
@@ -79,6 +71,7 @@ def submit_user_data(request):
         'random_forest_prediction': sklearn_prediction,
         'pytorch_prediction': pytorch_prediction
     })
+
 
 def home(request):
     return HttpResponse("<h1>Home Page</h1>")
