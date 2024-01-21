@@ -21,15 +21,7 @@ pytorch_model = load_pytorch_model()
 @api_view(['POST'])
 def submit_user_data(request):
     serializer = UserDataSerializer(data=request.data)
-    #Cache Connection TEST
-    # cache.set('my_key', 'my_value', timeout=60)
-    # # Get the cache value
-    # value = cache.get('my_key')
-    # print(value)  # It should print 'my_value'
-    # gender_name = request.data['gender']
-    # request.data['gender'] = {'name': gender_name}
     print(serializer)
-    print(serializer.is_valid())
     if serializer.is_valid():
         print("hello")
         serializer.save()
@@ -43,10 +35,8 @@ def submit_user_data(request):
     # Compute interaction terms and transformations as per the training notebook
     age = float(input_data.get('age', 0))
     bmi = float(input_data.get('bmi', 0))
-
     hypertension = 1 if input_data.get('hypertension', 'no') == 'yes' else 0
-    heart_disease = 1 if input_data.get('heart_disease', 'no') == 'yes' else 0
-
+    heart_disease = 1 if input_data.get('heartDisease', 'no') == 'yes' else 0
 
     age_bmi_interaction = age * bmi
     hypertension_heart_interaction = hypertension * heart_disease
@@ -55,23 +45,26 @@ def submit_user_data(request):
 
     # Include categorical features as they are (one-hot encoded)
     rf_features = [
-        age, hypertension, heart_disease, bmi, input_data.get('HbA1c_level', 0), input_data.get('blood_glucose_level', 0),
+        age, hypertension, heart_disease, bmi, float(input_data.get('hba1cLevel', 0)), float(input_data.get('bloodGlucoseLevel', 0)),
         age_bmi_interaction, hypertension_heart_interaction, log_bmi, sqrt_age,
-        input_data.get('gender_Female', 0), input_data.get('gender_Male', 0), input_data.get('gender_Other', 0),
-        input_data.get('smoking_history_No Info', 0), input_data.get('smoking_history_current', 0),
-        input_data.get('smoking_history_former', 0), input_data.get('smoking_history_never', 0),
-        input_data.get('smoking_history_not current', 0)
+        int(input_data.get('gender_Female', 0)), int(input_data.get('gender_Male', 0)), int(input_data.get('gender_Other', 0)),
+        int(input_data.get('smoking_history_No Info', 0)), int(input_data.get('smoking_history_current', 0)),
+        int(input_data.get('smoking_history_former', 0)), int(input_data.get('smoking_history_never', 0)),
+        int(input_data.get('smoking_history_not current', 0))
     ]
+
+    # Predict with Random Forest model using dynamically generated data
     sklearn_prediction = sklearn_model.predict([rf_features])[0]
 
-    # Process input data for PyTorch model (use the features directly as they are)
+    # Process input data for PyTorch model (convert string to float)
     dl_features = torch.tensor([[ 
-        age, hypertension, heart_disease, bmi, input_data.get('HbA1c_level', 0), input_data.get('blood_glucose_level', 0),
-        input_data.get('gender_Female', 0), input_data.get('gender_Male', 0), input_data.get('gender_Other', 0),
-        input_data.get('smoking_history_No Info', 0), input_data.get('smoking_history_current', 0),
-        input_data.get('smoking_history_former', 0), input_data.get('smoking_history_never', 0),
-        input_data.get('smoking_history_not current', 0)
+        age, hypertension, heart_disease, bmi, float(input_data.get('hba1cLevel', 0)), float(input_data.get('bloodGlucoseLevel', 0)),
+        int(input_data.get('gender_Female', 0)), int(input_data.get('gender_Male', 0)), int(input_data.get('gender_Other', 0)),
+        int(input_data.get('smoking_history_No Info', 0)), int(input_data.get('smoking_history_current', 0)),
+        int(input_data.get('smoking_history_former', 0)), int(input_data.get('smoking_history_never', 0)),
+        int(input_data.get('smoking_history_not current', 0))
     ]], dtype=torch.float32)
+
     pytorch_prediction = pytorch_model(dl_features).item()
 
     # Return predictions
@@ -79,6 +72,7 @@ def submit_user_data(request):
         'random_forest_prediction': sklearn_prediction,
         'pytorch_prediction': pytorch_prediction
     })
+
 
 def home(request):
     return HttpResponse("<h1>Home Page</h1>")
