@@ -21,10 +21,12 @@ def submit_user_data(request):
 
     # Process input data for Random Forest model
     # Compute interaction terms and transformations as per the training notebook
-    age = input_data.get('age', 0)
-    bmi = input_data.get('bmi', 0)
-    hypertension = input_data.get('hypertension', 0)
-    heart_disease = input_data.get('heart_disease', 0)
+    age = float(input_data.get('age', 0))
+    bmi = float(input_data.get('bmi', 0))
+
+    hypertension = 1 if input_data.get('hypertension', 'no') == 'yes' else 0
+    heart_disease = 1 if input_data.get('heart_disease', 'no') == 'yes' else 0
+
 
     age_bmi_interaction = age * bmi
     hypertension_heart_interaction = hypertension * heart_disease
