@@ -1,11 +1,9 @@
 from django.shortcuts import render
-<<<<<<< HEAD
 from django.core.cache import cache
 # Create your views here.
-=======
->>>>>>> origin/Raja_Model_Deployment2
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
+from .serializers import UserDataSerializer
 from django.http import HttpResponse
 import torch
 import numpy as np
@@ -22,7 +20,6 @@ pytorch_model = load_pytorch_model()
 
 @api_view(['POST'])
 def submit_user_data(request):
-<<<<<<< HEAD
     serializer = UserDataSerializer(data=request.data)
     #Cache Connection TEST
     # cache.set('my_key', 'my_value', timeout=60)
@@ -40,7 +37,7 @@ def submit_user_data(request):
     else:
         print(serializer.errors)
         return Response(serializer.errors)
-=======
+    
     input_data = request.data
 
     # Process input data for Random Forest model
@@ -83,7 +80,6 @@ def submit_user_data(request):
         'random_forest_prediction': sklearn_prediction,
         'pytorch_prediction': pytorch_prediction
     })
->>>>>>> origin/Raja_Model_Deployment2
 
 def home(request):
     return HttpResponse("<h1>Home Page</h1>")
