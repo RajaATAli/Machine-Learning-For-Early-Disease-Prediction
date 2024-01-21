@@ -22,6 +22,7 @@ pytorch_model = load_pytorch_model()
 
 @api_view(['POST'])
 def submit_user_data(request):
+    
     start_time = time.time()
     serializer = UserDataSerializer(data=request.data)
     #Cache Connection TEST
@@ -47,8 +48,8 @@ def submit_user_data(request):
         return Response(serializer.errors)
 
     
-    
     input_data = request.data
+    
 
     # Process input data for Random Forest model
     # Compute interaction terms and transformations as per the training notebook
@@ -63,9 +64,8 @@ def submit_user_data(request):
     hypertension_heart_interaction = hypertension * heart_disease
     log_bmi = np.log(bmi + 1)  # Adding 1 to avoid log(0)
     sqrt_age = np.sqrt(age)
-
     # Include categorical features as they are (one-hot encoded)
-    if (input_data.get('selectedmodel').get('name') == 'rf'):
+    if (input_data.get('selectedModel').get('name') == "rf"):
         rf_features = [
             age, hypertension, heart_disease, bmi, input_data.get('HbA1c_level', 0), input_data.get('blood_glucose_level', 0),
             age_bmi_interaction, hypertension_heart_interaction, log_bmi, sqrt_age,
@@ -75,6 +75,7 @@ def submit_user_data(request):
             input_data.get('smoking_history_not current', 0)
         ]
         prediction = sklearn_model.predict([rf_features])[0]
+        modelName = "Random Forest"
 
     # Process input data for PyTorch model (use the features directly as they are)
     else:
@@ -86,10 +87,12 @@ def submit_user_data(request):
             input_data.get('smoking_history_not current', 0)
         ]], dtype=torch.float32)
         prediction = pytorch_model(dl_features).item()
+        modelName = "MLP(Multi-Layer Perception)"
 
     # Return predictions
     result = {
-        'Model Prediction': prediction
+        'modelName': modelName,
+        'prediction': prediction
     }
     end_time = time.time()
     elapsed_time = end_time - start_time

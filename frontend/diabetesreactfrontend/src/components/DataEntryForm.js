@@ -228,8 +228,8 @@ const DataEntryForm = () => {
                 {predictionResults && (
                 <div>
                     <h3>Prediction Results:</h3>
-                    <p>Random Forest Prediction: {predictionResults.random_forest_prediction}</p>
-                    <p>PyTorch Prediction: {predictionResults.pytorch_prediction}</p>
+                    <p>Model Name: {predictionResults.modelName}</p>
+                    <p>Prediction: {predictionResults.prediction}</p>
                 </div>
                  )}
 
