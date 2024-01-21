@@ -5,6 +5,6 @@ from . import views
 urlpatterns = [
     path('submit-data/', views.submit_user_data, name='submit-data'),
     #'path('api/', include('api.urls')),' line
-    
+    path('predict/', views.submit_user_data, name='predict'),
 ]
 
