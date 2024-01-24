@@ -19,8 +19,7 @@ function App() {
       <div className="App">
           <nav className="navbar" style={{'background-color':'#fffacc'}}>
             <a className="navbar-brand" href="#">
-              <img src="logo.png" width="150" height="150" className="d-inline-block align-top" alt="DiabTech Logo" />
-              <label style={{ fontFamily: 'cursive', fontSize: '100px', marginLeft: '10px' }}>DiabTech</label>
+              <label style={{ fontFamily: 'Roboto, sans-serif', fontSize: '50px', marginLeft: '20px' }}>Predictive Type 2 Diabetes</label>
             </a>
           </nav>
         <Routes>
