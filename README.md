@@ -1,82 +1,40 @@
-# diabTech: Predictive Type-2 Diabetes Modeling
+# Machine Learning for Early Disease Diabetes Prediction (UROP Research Project)
 
-## Table of Contents
-1. [Overview](#overview)
-2. [Key Technologies](#key-technologies)
-3. [Getting Started](#getting-started)
-   - [Clone the Repository](#clone-the-repository)
-   - [Set Up Your Environment](#set-up-your-environment)
-4. [Running the Application](#running-the-application)
-   - [Start the React Application](#start-the-react-application)
-   - [Start the Django Application](#start-the-django-application)
+This repository contains all the research materials and code for the UROP project titled "Machine Learning for Early Disease Prediction: A Case Study on Diabetes", mentored by Dr. Angela P. Murillo.
 
 ## Overview
 
-**diabTech** is a cutting-edge solution for predictive modeling of Type-2 Diabetes, integrating a sophisticated Random Forest Ensemble Model and a Multi Layer Perceptron Neural Network. These models are deployed in a robust Full Stack Web Application, harmonizing the capabilities of React, Django, and SQLite. Our goal is to provide a seamless, user-friendly interface for efficient diabetes risk prediction and management.
+Diabetes is a chronic disease affecting millions globally. Traditional diagnostic methods often rely on clinical symptoms and laboratory tests, which might not suffice for early-stage risk detection. This project aims to harness various machine learning models to predict the likelihood of an individual developing diabetes based on Electronic Health Records (EHRs) and other relevant health data. The endeavor encompasses data collection, preprocessing, model training, evaluation, and further insights derived from the data.
 
-## Key Technologies
+## Suggested Repository Structure
 
-<table>
-  <tr>
-    <td style="text-align: center;">
-      <img src="img/kisspng-scikit-learn-python-scikit-image-logo-brand-custom-application-development-service-provider-ap-5b7f65a43cd484.7557485915350757482492.jpg" alt="SciKit Learn" width="100px" />
-      <br /><strong>SciKit Learn</strong><br />For advanced machine learning algorithms.
-    </td>
-    <td style="text-align: center;">
-      <img src="img/1200px-PyTorch_logo_icon.svg.png" alt="PyTorch" width="100px" />
-      <br /><strong>PyTorch</strong><br />For neural network optimization.
-    </td>
-    <td style="text-align: center;">
-      <img src="img/550460.png" alt="Redis" width="100px" />
-      <br /><strong>Redis</strong><br />For efficient caching and message brokering.
-    </td>
-  </tr>
-  <tr>
-    <td style="text-align: center;">
-      <img src="img/png-transparent-aperture-laboratories-science-technology-laboratory-portal-science-blue-text-computer-thumbnail.png" alt="React" width="100px" />
-      <br /><strong>React</strong><br />For a dynamic and responsive frontend.
-    </td>
-    <td style="text-align: center;" colspan="2">
-      <img src="img/Django-Logo.png" alt="Django" width="100px" />
-      <br /><strong>Django</strong><br />For a powerful and scalable backend.
-    </td>
-  </tr>
-</table>
+### Data
+- **raw/**: Houses the initial, unprocessed datasets.
+- **processed/**: Contains data that has been cleaned and preprocessed.
+- **external/**: For any external datasets or supplementary data used.
 
+### Notebooks
+- **exploratory/**: For initial data exploration and visualization tasks.
+- **modeling/**: Dedicated to notebooks on model training and evaluation.
 
+### Source Code (`src/`)
+- **data/**: Scripts and utilities related to data processing.
+- **models/**: Contains scripts for building and refining machine learning models.
+- **utils/**: Miscellaneous utility scripts and helper functions, from visualization to metrics.
 
-## Getting Started
+### Results
+- **figures/**: All generated plots, charts, and visual figures are stored here.
+- **logs/**: Contains logs, especially useful for tracing model training sessions or errors.
+- **models/**: Storage for saved machine learning model weights and architectures.
 
-### Clone the Repository
+### Documentation (`docs/`)
+- **manuscript/**: Manuscript drafts, files, and related materials.
+- **project_documentation/**: Comprehensive documentation, summaries, and write-ups about the project, including meeting notes.
 
-To begin, clone the repository to your local machine:
+### Deployment
+- **api/**: Files related to deploying the model as an API
+- **web_interface/**: Resources for any web application or interface
 
-```
-git clone [URL of the repository]
-cd [name of the repository]
-```
-
-### Install Dependencies using Conda
-1. Create the environment from the environment_final.yml file:
-`conda env create -f environment_final.yml`
-2. Activate the new environment: 
-`conda activate diabetes_model_deployment_final`
-3. Verify that the new environment was installed correctly:
-`conda env list`
-
-### Run the React App
-1. Navigate to the frontend directory:
-`cd frontend/diabetesreactfrontend`
-2. Start the React App:
-`npm start`
-
-### Run the Django App
-1. Navigate to the backend directory:
-`cd backend/DjangoDiabetesBackend`
-2. Start the Django App:
-`python manage.py runserver`
-
-
-
-
-
+### Literature Review (`literature/`)
+- **papers/**: Collection of relevant academic papers, articles, and research.
+- **notes/**: Contains annotated notes or summaries based on the literature.
