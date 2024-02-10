@@ -52,7 +52,6 @@ def submit_user_data(request):
     
 
     # Process input data for Random Forest model
-    # Compute interaction terms and transformations as per the training notebook
     age = float(input_data.get('age', 0))
     bmi = float(input_data.get('bmi', 0))
     hypertension = 1 if input_data.get('hypertension', 'no') == 'yes' else 0

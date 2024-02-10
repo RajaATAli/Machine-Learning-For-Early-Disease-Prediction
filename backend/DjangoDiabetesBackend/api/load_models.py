@@ -2,10 +2,12 @@ import joblib
 import torch
 import torch.nn as nn
 
+# Load Random Forest model
 def load_sklearn_model():
     model = joblib.load('model/diabetes_rf_model.joblib')
     return model
 
+# PyTorch model class which defines the model architecture
 class PyTorchModel(nn.Module):
     def __init__(self):
         super(PyTorchModel, self).__init__()
