@@ -6,7 +6,6 @@ const modelDetails = {
     rf: {
         title: "Random Forest",
         description: "Random Forest is a versatile machine learning method capable of performing both regression and classification tasks. It's a type of ensemble learning method, where a group of weak models combine to form a powerful model.",
-        // More details if necessary
     },
     mlp: {
         title: "MLP (Multi-Layer Perceptron)",
@@ -35,7 +34,6 @@ const DataEntryForm = () => {
     });
 
     // New state variables for selectedModel and modelInfo
-    const [selectedModel, setSelectedModel] = useState('');
     const [modelInfo, setModelInfo] = useState({
         title: '',
         description: ''
@@ -240,7 +238,7 @@ const DataEntryForm = () => {
                     {errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>}
 
                     {/* Submit Button */}
-                    <Button type="submit" variant="contained" style={{'background-color': '#fffacc'}}>
+                    <Button type="submit" variant="contained" style={{'background-color': 'rgb(67, 185, 206)'}}>
                         <label style={{'color' : 'black'}}>Submit</label>
                     </Button>
                 </FormGroup>

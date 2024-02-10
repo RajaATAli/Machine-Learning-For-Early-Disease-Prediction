@@ -47,3 +47,33 @@
     transform: rotate(360deg);
   }
 }
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center; 
+  background-color: rgb(67, 185, 206); 
+  padding: 1rem 0;
+}
+
+.navbar-heading{
+  font-size: 50px;
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 20px;
+}
+
+/* Styles for the navigation links container */
+.nav-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Styles for individual navigation links */
+.nav-link {
+  text-decoration: none;
+  color: inherit;
+  font-size: 25px; 
+  font-family: 'Arial', sans-serif;
+}
