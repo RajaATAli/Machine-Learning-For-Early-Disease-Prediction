@@ -1,21 +1,30 @@
-### Source Code (`src/`)
-- **data/**: Scripts and utilities related to data processing.
-- **models/**: Contains scripts for building and refining machine learning models.
-- **utils/**: Miscellaneous utility scripts and helper functions, from visualization to metrics.
+## Getting Started
 
-### Results
-- **figures/**: All generated plots, charts, and visual figures are stored here.
-- **logs/**: Contains logs, especially useful for tracing model training sessions or errors.
-- **models/**: Storage for saved machine learning model weights and architectures.
+### Clone the Repository
 
-### Documentation (`docs/`)
-- **manuscript/**: Manuscript drafts, files, and related materials.
-- **project_documentation/**: Comprehensive documentation, summaries, and write-ups about the project, including meeting notes.
+To begin, clone the repository to your local machine:
 
-### Deployment
-- **api/**: Files related to deploying the model as an API
-- **web_interface/**: Resources for any web application or interface
+```
+git clone [URL of the repository]
+cd [name of the repository]
+```
 
-### Literature Review (`literature/`)
-- **papers/**: Collection of relevant academic papers, articles, and research.
-- **notes/**: Contains annotated notes or summaries based on the literature.
+### Install Dependencies using Conda
+1. Create the environment from the environment_final.yml file:
+`conda env create -f environment_final.yml`
+2. Activate the new environment: 
+`conda activate diabetes_model_deployment_final`
+3. Verify that the new environment was installed correctly:
+`conda env list`
+
+### Run the React App
+1. Navigate to the frontend directory:
+`cd frontend/diabetesreactfrontend`
+2. Start the React App:
+`npm start`
+
+### Run the Django App
+1. Navigate to the backend directory:
+`cd backend/DjangoDiabetesBackend`
+2. Start the Django App:
+`python manage.py runserver`
