@@ -8,6 +8,7 @@ def load_sklearn_model():
     return model
 
 # PyTorch model class which defines the model architecture
+'''
 class PyTorchModel(nn.Module):
     def __init__(self):
         super(PyTorchModel, self).__init__()
@@ -25,6 +26,7 @@ class PyTorchModel(nn.Module):
 
     def forward(self, x):
         return self.layers(x)
+'''
 
 # Load PyTorch model
 def load_pytorch_model():
