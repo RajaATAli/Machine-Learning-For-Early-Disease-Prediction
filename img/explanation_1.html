@@ -37089,10 +37089,10 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divEDQ87NLIC2KMXRJ"></div>
+        <div class="lime top_div" id="top_divZD2TH6QW2U5DA56"></div>
         
         <script>
-        var top_div = d3.select('#top_divEDQ87NLIC2KMXRJ').classed('lime top_div', true);
+        var top_div = d3.select('#top_divZD2TH6QW2U5DA56').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
@@ -37104,10 +37104,10 @@
             var exp = new lime.Explanation(["Non-Diabetic", "Diabetic"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["4.80 < HbA1c_level <= 5.80", -0.1491306793570514], ["gender_Other <= 0.00", 0.12800348888106367], ["smoking_history_not current <= 0.00", 0.0813511384810699], ["gender_Female <= 0.00", 0.08124892095111261], ["smoking_history_No Info <= 0.00", 0.08072123956040313], ["0.00 < gender_Male <= 1.00", -0.07662484948146507], ["heart_disease > 0.00", -0.07600874443432114], ["smoking_history_former <= 0.00", 0.07124801435461649], ["0.00 < smoking_history_never <= 1.00", -0.057134945744519154], ["100.00 < blood_glucose_level <= 140.00", 0.036399142628897124]], 1, exp_div);
+                exp.show([["4.80 < HbA1c_level <= 5.80", -0.13412295034459684], ["hypertension_heart_interaction <= 0.00", -0.10063979890620557], ["gender_Female <= 0.00", 0.09610374873843769], ["0.00 < gender_Male <= 1.00", -0.08315829070288185], ["smoking_history_No Info <= 0.00", 0.07415042197245862], ["smoking_history_not current <= 0.00", 0.06692426264786888], ["0.00 < smoking_history_never <= 1.00", -0.0535330218613738], ["smoking_history_current <= 0.00", 0.04262035529968586], ["100.00 < blood_glucose_level <= 140.00", 0.029977298509573345], ["sqrt_age > 7.75", 0.021451029618793437]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_tabular([["HbA1c_level", "5.70", -0.1491306793570514], ["gender_Other", "0.00", 0.12800348888106367], ["smoking_history_not current", "0.00", 0.0813511384810699], ["gender_Female", "0.00", 0.08124892095111261], ["smoking_history_No Info", "0.00", 0.08072123956040313], ["gender_Male", "1.00", -0.07662484948146507], ["heart_disease", "1.00", -0.07600874443432114], ["smoking_history_former", "0.00", 0.07124801435461649], ["smoking_history_never", "1.00", -0.057134945744519154], ["blood_glucose_level", "140.00", 0.036399142628897124]], 1, raw_div);
+            exp.show_raw_tabular([["HbA1c_level", "5.70", -0.13412295034459684], ["hypertension_heart_interaction", "0.00", -0.10063979890620557], ["gender_Female", "0.00", 0.09610374873843769], ["gender_Male", "1.00", -0.08315829070288185], ["smoking_history_No Info", "0.00", 0.07415042197245862], ["smoking_history_not current", "0.00", 0.06692426264786888], ["smoking_history_never", "1.00", -0.0535330218613738], ["smoking_history_current", "0.00", 0.04262035529968586], ["blood_glucose_level", "140.00", 0.029977298509573345], ["sqrt_age", "8.94", 0.021451029618793437]], 1, raw_div);
         
         </script>
         </body></html>
