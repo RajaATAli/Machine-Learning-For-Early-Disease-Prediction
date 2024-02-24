@@ -28,3 +28,6 @@ cd [name of the repository]
 `cd backend/DjangoDiabetesBackend`
 2. Start the Django App:
 `python manage.py runserver`
+
+### Different Models Trained to Predict Diabetes
+
