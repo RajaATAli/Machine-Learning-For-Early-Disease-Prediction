@@ -34,5 +34,6 @@ cd [name of the repository]
 `python manage.py runserver`
 
 ## Short Video Demonstration
+https://github.com/RajaATAli/Machine-Learning-For-Early-Disease-Prediction/assets/76918821/38781b0f-bfd9-4ef5-90ea-1c745be9f24c
 
 
