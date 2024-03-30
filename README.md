@@ -1,3 +1,7 @@
+# Research Question
+**How do traditional Machine Learning techniques compare in accuracy and reliability for predicting Type 2 Diabetes Mellitus (T2DM) risk to Deep Learning methods, and in what ways can a novel hybrid approach combining ML and DL models improve prediction outcomes across populations?**
+
+
 ## Getting Started
 
 ### Clone the Repository
@@ -29,5 +33,6 @@ cd [name of the repository]
 2. Start the Django App:
 `python manage.py runserver`
 
-### Different Models Trained to Predict Diabetes
+## Short Video Demonstration
+
 
