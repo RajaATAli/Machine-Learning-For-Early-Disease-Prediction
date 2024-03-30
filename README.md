@@ -44,7 +44,7 @@ https://github.com/RajaATAli/Machine-Learning-For-Early-Disease-Prediction/asset
 - The data in EHRs is collected and stored by healthcare providers, such as hospitals and clinics, as part of their routine clinical practice.
 - To create the Diabetes Prediction dataset, EHRs were collected from multiple healthcare providers and aggregated into a single dataset. The data was then cleaned and preprocessed to ensure consistency and remove any irrelevant or incomplete information.
 - The dataset contains a total of 100,000 patient records, with each record consisting of 8 features and a target variable indicating the patient's diabetes status (positive or negative).
-- ![Data Source](https://www.kaggle.com/datasets/iammustafatz/diabetes-prediction-dataset/)
+- [Data Source](https://www.kaggle.com/datasets/iammustafatz/diabetes-prediction-dataset/)
 
 # Key Technologies
 
